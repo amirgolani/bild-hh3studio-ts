@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="/assets/css/style_11Themen.css">
     <title>TOUCH LAGEZENTRUM</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/assets/favicon/site.webmanifest">
 </head>
 
 <body>
@@ -16,14 +20,10 @@
 
 
     <video id="video" playsinline autoplay muted loop>
-        <source src="/assets/gp/loop-isr.webm" type="video/webm">
+        <source src="/assets/storage-isr/1.webm" type="video/webm">
     </video>
 
     <div id="layoutBuildUp">
-        <a class="video pos0"
-            onclick="playVideo('/assets/gp/loop-isr.webm', 'loop', 'muted', 'noPlayButtons'); unhighlight();">
-            <i class="material-icons">home</i>
-        </a>
 
 
     </div>
@@ -117,6 +117,7 @@
 
             console.log(video);
             video.setAttribute('src', path)
+            console.log(video);
 
             if (loop == "loop" || loop == "true")
                 video.loop = true;
@@ -194,27 +195,29 @@
     <script>
         function getLayout() {
 
-            var layout = `<a class="video pos0"
-            onclick="playVideo('/assets/gp/loop-isr.webm', 'loop', 'muted', 'noPlayButtons'); unhighlight();">
-            <i class="material-icons">home</i>
-        </a>
-        `;
+
 
             fetch('/layout-isr').then((response) => response.json()).then((json) => {
 
-                for (l = 1; l < json.length; l++) {
+                console.log(json)
+                var layout = `<a class="video pos0"
+            onclick="playVideo('/assets/storage-isr/${json[1].file.split(`\\`)[5]}', 'loop','muted','noPlayButtons'); unhighlight();">
+            <i class="material-icons">home</i>
+        </a>
+        `;
+        // playVideo(`'/assets/storage-isr/${json[1].file.split(`\\`)[5]}','loop','muted','noPlayButtons'`)
+                for (l = 2; l < json.length; l++) {
                     console.log(json[l].mute)
 
-                    layout += `<a class="video pos${l}" onclick="playVideo('/assets/storage-isr/${json[l].file.split(`\\`)[5]}', '${json[l].loop ? 'loop' : 'notloop'}', '${json[l].mute ? 'muted' : 'unmuted'}', '${json[l].ctrl ? 'withPlayButtons' : 'noPlayButtons'}'); highlight();">
+                    layout += `<a class="video pos${l-1}" onclick="playVideo('/assets/storage-isr/${json[l].file.split(`\\`)[5]}', '${json[l].loop ? 'loop' : 'notloop'}', '${json[l].mute ? 'muted' : 'unmuted'}', '${json[l].ctrl ? 'withPlayButtons' : 'noPlayButtons'}'); highlight();">
                     ${json[l].name}
                     </a>
                     `
                 }
                 // console.log(layout)
-                document.getElementById('layoutBuildUp').innerHTML = layout
+                document.getElementById('layoutBuildUp').innerHTML = layout;
 
             });
-
         }
 
         getLayout()
