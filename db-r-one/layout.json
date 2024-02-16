@@ -1,6 +1,6 @@
 [
   {
-    "lastUpdate": 1708085497636
+    "lastUpdate": 1708085807872
   },
   {
     "name": [
@@ -12,15 +12,12 @@
     "loop": [
       "on"
     ],
-    "file": "/Users/agolani/Documents/git/bild-hh3studio-ts/public/storage-r-one/loop-r-one.webm"
+    "file": "C:\\Projects\\bild-hh3studio-ts\\public\\storage-r-one\\loop-r-one.webm"
   },
   {
     "name": [
       "MAP Gaza"
     ],
-    "ctrl": [
-      "on"
-    ],
-    "file": "/Users/agolani/Documents/git/bild-hh3studio-ts/public/storage-r-one/1.webm"
+    "file": "C:\\Projects\\bild-hh3studio-ts\\public\\storage-r-one\\1.webm"
   }
 ]

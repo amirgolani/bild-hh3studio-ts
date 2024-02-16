@@ -156,18 +156,18 @@
     <script>
         function getLayout() {
 
-            var layout = `<a class="video pos0"
-            onclick="playVideo('/assets/gp/loop-r-two.webm', 'loop', 'muted', 'noPlayButtons'); unhighlight();">
+            fetch('/layout-r-two').then((response) => response.json()).then((json) => {
+
+                var layout = `<a class="video pos0"
+            onclick="playVideo('/assets/storage-r-two/${json[1].file.split(`\\`)[5]}', 'loop', 'muted', 'noPlayButtons'); unhighlight();">
             <i class="material-icons">home</i>
         </a>
         `;
 
-            fetch('/layout-r-two').then((response) => response.json()).then((json) => {
-
-                for (l = 1; l < json.length; l++) {
+                for (l = 2; l < json.length; l++) {
                     console.log(json[l].mute)
 
-                    layout += `<a class="video pos${l}" onclick="playVideo('/assets/storage-r-two/${json[l].file.split(`\\`)[5]}', '${json[l].loop ? 'loop' : 'notloop'}', '${json[l].mute ? 'muted' : 'unmuted'}', '${json[l].ctrl ? 'withPlayButtons' : 'noPlayButtons'}'); highlight();">
+                    layout += `<a class="video pos${l-1}" onclick="playVideo('/assets/storage-r-two/${json[l].file.split(`\\`)[5]}', '${json[l].loop ? 'loop' : 'notloop'}', '${json[l].mute ? 'muted' : 'unmuted'}', '${json[l].ctrl ? 'withPlayButtons' : 'noPlayButtons'}'); highlight();">
                     ${json[l].name}
                     </a>
                     `
