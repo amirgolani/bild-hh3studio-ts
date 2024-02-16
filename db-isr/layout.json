@@ -1,23 +1,11 @@
 [
   {
-    "lastUpdate": 1708079268327
-  },
-  {
-    "name": [
-      "Home"
-    ],
-    "mute": [
-      "on"
-    ],
-    "loop": [
-      "on"
-    ],
-    "file": "/Users/agolani/Documents/git/bild-hh3studio-ts/public/storage-isr/loop-isr.webm"
+    "lastUpdate": 1701943640473
   },
   {
     "name": [
       "MAP Gaza"
     ],
-    "file": "/Users/agolani/Documents/git/bild-hh3studio-ts/public/storage-isr/1.webm"
+    "file": "C:\\Projects\\lz\\public\\storage-isr\\1.webm"
   }
 ]
