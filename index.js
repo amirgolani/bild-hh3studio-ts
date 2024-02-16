@@ -20,17 +20,17 @@ app.use((req, res, next) => {
     next()
 });
 
-// UKR
+// r-two
 
-app.get('/create-ukr', (req, res) => {
-    res.render('create-ukr')
+app.get('/create-r-two', (req, res) => {
+    res.render('create-r-two')
 });
 
-app.get('/present-ukr', (req, res) => {
-    res.render('present-ukr')
+app.get('/present-r-two', (req, res) => {
+    res.render('present-r-two')
 });
 
-app.post('/create-ukr', (req, res) => {
+app.post('/create-r-two', (req, res) => {
     const form = new formidable.IncomingForm({
         multiples: true,
         maxFileSize: 2 * 1024 * 1024 * 1024, // 2 GB limit
@@ -42,13 +42,13 @@ app.post('/create-ukr', (req, res) => {
         }
 
         // Create directory if it doesn't exist
-        const storagePath = path.join(__dirname, 'public', 'storage-ukr');
+        const storagePath = path.join(__dirname, 'public', 'storage-r-two');
         if (!fs.existsSync(storagePath)) {
             fs.mkdirSync(storagePath);
         }
 
         // Create directory for JSON file if it doesn't exist
-        const dbPath = path.join(__dirname, 'db-ukr');
+        const dbPath = path.join(__dirname, 'db-r-two');
         if (!fs.existsSync(dbPath)) {
             fs.mkdirSync(dbPath);
         }
@@ -92,13 +92,13 @@ app.post('/create-ukr', (req, res) => {
         // console.log('Fields:', fields);
         // console.log('Files:', files);
         var d = new Date(Date.now());
-        console.log(chalk.yellowBright(d.toString().split('GMT')[0], `UKR Page created`));
+        console.log(chalk.yellowBright(d.toString().split('GMT')[0], `r-two Page created`));
         res.json(jsonData);
     });
 });
 
-app.get('/layout-ukr', (req, res) => {
-    const filePath = path.join(__dirname, 'db-ukr', 'layout.json');
+app.get('/layout-r-two', (req, res) => {
+    const filePath = path.join(__dirname, 'db-r-two', 'layout.json');
 
     // Read the file asynchronously
     fs.readFile(filePath, 'utf8', (err, data) => {
@@ -121,17 +121,17 @@ app.get('/layout-ukr', (req, res) => {
     });
 });
 
-// ISR
+// r-one
 
-app.get('/create-isr', (req, res) => {
-    res.render('create-isr')
+app.get('/create-r-one', (req, res) => {
+    res.render('create-r-one')
 });
 
-app.get('/present-isr', (req, res) => {
-    res.render('present-isr')
+app.get('/present-r-one', (req, res) => {
+    res.render('present-r-one')
 });
 
-app.post('/create-isr', (req, res) => {
+app.post('/create-r-one', (req, res) => {
     const form = new formidable.IncomingForm({
         multiples: true,
         maxFileSize: 2 * 1024 * 1024 * 1024, // 2 GB limit
@@ -143,13 +143,13 @@ app.post('/create-isr', (req, res) => {
         }
 
         // Create directory if it doesn't exist
-        const storagePath = path.join(__dirname, 'public', 'storage-isr');
+        const storagePath = path.join(__dirname, 'public', 'storage-r-one');
         if (!fs.existsSync(storagePath)) {
             fs.mkdirSync(storagePath);
         }
 
         // Create directory for JSON file if it doesn't exist
-        const dbPath = path.join(__dirname, 'db-isr');
+        const dbPath = path.join(__dirname, 'db-r-one');
         if (!fs.existsSync(dbPath)) {
             fs.mkdirSync(dbPath);
         }
@@ -193,13 +193,13 @@ app.post('/create-isr', (req, res) => {
         // console.log('Fields:', fields);
         // console.log('Files:', files);
         var d = new Date(Date.now());
-        console.log(chalk.yellowBright(d.toString().split('GMT')[0], `ISR Page created`));
+        console.log(chalk.yellowBright(d.toString().split('GMT')[0], `r-one Page created`));
         res.json(jsonData);
     });
 });
 
-app.get('/layout-isr', (req, res) => {
-    const filePath = path.join(__dirname, 'db-isr', 'layout.json');
+app.get('/layout-r-one', (req, res) => {
+    const filePath = path.join(__dirname, 'db-r-one', 'layout.json');
 
     // Read the file asynchronously
     fs.readFile(filePath, 'utf8', (err, data) => {
@@ -232,8 +232,8 @@ app.listen(port, () => {
     ██    ██ ██  ██  ██   ██ 
      ██████  ██   ██ ██   ██ 
                              `));
-    console.log(chalk.yellowBright(`- "http://${localIpAddress()}:${port}/create-ukr"`));
-    console.log(chalk.yellowBright(`- "http://${localIpAddress()}:${port}/present-ukr"`));
+    console.log(chalk.yellowBright(`- "http://${localIpAddress()}:${port}/create-r-two"`));
+    console.log(chalk.yellowBright(`- "http://${localIpAddress()}:${port}/present-r-two"`));
     console.log(chalk.blueBright(`
     ██ ███████ ██████  
     ██ ██      ██   ██ 
@@ -241,6 +241,6 @@ app.listen(port, () => {
     ██      ██ ██   ██ 
     ██ ███████ ██   ██ 
                        `));
-    console.log(chalk.blueBright(`- "http://${localIpAddress()}:${port}/create-isr"`));
-    console.log(chalk.blueBright(`- "http://${localIpAddress()}:${port}/present-isr"`));
+    console.log(chalk.blueBright(`- "http://${localIpAddress()}:${port}/create-r-one"`));
+    console.log(chalk.blueBright(`- "http://${localIpAddress()}:${port}/present-r-one"`));
 });

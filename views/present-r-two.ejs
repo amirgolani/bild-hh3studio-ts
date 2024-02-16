@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/style_11Themen.css">
+    <title>TOUCH LAGEZENTRUM</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <!-- <img src="images/bg_map.jpg" id="bg" alt=""> -->
+
+    <video id="video" playsinline autoplay muted loop>
+        <source src="/assets/gp/BGBILD.mp4" type="video/webm">
+    </video>
+
+    <div id="layoutBuildUp">
+        <a class="video pos0"
+            onclick="playVideo('/assets/gp/BGBILD.mp4', 'loop', 'muted', 'noPlayButtons'); unhighlight();">
+            <i class="material-icons">home</i>
+        </a>
+    </div>
+
+    <div id="seek" hidden>
+
+        <a class="floatLeft0" onclick="ctrlPlayVideo()">
+            <i class="material-icons align">play_arrow</i>
+        </a>
+        <a class="floatLeft" onclick="pauseVideo()">
+            <i class="material-icons align">pause</i>
+        </a>
+
+        <div id="timecode">00:00</div>
+
+        <input id="seekslider" type="range" min="0" max="1500" value="0" step="1">
+
+    </div>
+
+    <!--
+        <a class="floatLeft3">
+        <i class="material-icons">keyboard_arrow_left</i>
+    </a> -->
+
+
+    <script>
+        // Highlightet Button *//
+        function highlight(e) {
+            var videos = document.getElementsByClassName("video");
+            for (const video of videos) {
+                video.classList.remove("active");
+            }
+            e = e || window.event;
+            e.srcElement.classList.add("active");
+            console.log(e.srcElement);
+        }
+
+        // Unhighlightet Button *//
+        function unhighlight(e) {
+            var videos = document.getElementsByClassName("video");
+            for (const video of videos) {
+                video.classList.remove("active");
+            }
+        }
+
+        // Audio optional part *//
+        function playVideo(path, loop, volume = "muted", PlayButtons = "withPlayButtons") {
+            var video = document.getElementById("video");
+            var seek = document.getElementById("seek");
+
+            if (PlayButtons == "withPlayButtons") {
+                seek.hidden = false;
+                console.log("withPlay");
+            } else {
+                seek.hidden = true;
+            }
+
+
+            console.log(video);
+            video.setAttribute('src', path)
+
+            if (loop == "loop" || loop == "true")
+                video.loop = true;
+            else {
+                video.loop = false;
+            }
+
+            if (volume == "muted") {
+                video.muted = true;
+                video.volume = 0;
+                console.log("Sem Audio");
+            } else {
+                video.muted = false;
+                video.volume = 1;
+                console.log("Com Audio");
+            }
+        }
+
+
+    </script>
+
+    <script>
+        var seekslider;
+        var video = document.getElementById('video'), frameTime = 1 / 25;
+        seekslider = document.getElementById("seekslider");
+        // Add event listeners
+        seekslider.addEventListener("change", vidSeek, false);
+        video.addEventListener("timeupdate", seektimeupdate, false);
+        video.ontimeupdate = function () { timecodeUpdate() };
+        function pauseVideo() {
+            video.pause();
+            console.log("pause");
+        }
+        function ctrlPlayVideo() {
+            video.play();
+            console.log("play");
+        }
+        function framePlus() {
+            video.currentTime = Math.min(video.duration, video.currentTime + frameTime);
+        }
+        function frameMinus() {
+            video.currentTime = Math.max(0, video.currentTime - frameTime);
+        }
+
+        function vidSeek() {
+            pauseVideo();
+            var seekto = video.duration * (seekslider.value / 1500);
+            video.currentTime = seekto;
+        }
+        function seektimeupdate() {
+            var nt = video.currentTime * (1500 / video.duration);
+            seekslider.value = nt;
+        }
+        function timecodeUpdate() {
+            // Display the current position of the video in a <p> element with id="demo"
+            document.getElementById("timecode").innerHTML = formatSecondsAsTime(video.currentTime);
+        }
+        function formatSecondsAsTime(secs, format) {
+            var hr = Math.floor(secs / 3600);
+            var min = Math.floor((secs - (hr * 3600)) / 60);
+            var sec = Math.floor(secs - (hr * 3600) - (min * 60));
+            if (min < 10) {
+                min = "0" + min;
+            }
+            if (sec < 10) {
+                sec = "0" + sec;
+            }
+
+            return min + ':' + sec;
+
+
+        }
+    </script>
+
+    <script>
+        function getLayout() {
+
+            var layout = `<a class="video pos0"
+            onclick="playVideo('/assets/gp/loop-r-two.webm', 'loop', 'muted', 'noPlayButtons'); unhighlight();">
+            <i class="material-icons">home</i>
+        </a>
+        `;
+
+            fetch('/layout-r-two').then((response) => response.json()).then((json) => {
+
+                for (l = 1; l < json.length; l++) {
+                    console.log(json[l].mute)
+
+                    layout += `<a class="video pos${l}" onclick="playVideo('/assets/storage-r-two/${json[l].file.split(`\\`)[5]}', '${json[l].loop ? 'loop' : 'notloop'}', '${json[l].mute ? 'muted' : 'unmuted'}', '${json[l].ctrl ? 'withPlayButtons' : 'noPlayButtons'}'); highlight();">
+                    ${json[l].name}
+                    </a>
+                    `
+                }
+                // console.log(layout)
+                document.getElementById('layoutBuildUp').innerHTML = layout
+
+            });
+
+        }
+
+        getLayout()
+    </script>
+
+
+
+</body>
+
+</html>
