@@ -1,6 +1,6 @@
 [
   {
-    "lastUpdate": 1708086164639
+    "lastUpdate": 1708437487662
   },
   {
     "name": [
@@ -12,12 +12,27 @@
     "loop": [
       "on"
     ],
-    "file": "C:\\Projects\\bild-hh3studio-ts\\public\\storage-r-two\\loop-r-two.webm"
+    "file": "/Users/agolani/Documents/git/bild-hh3studio-ts/public/storage-r-three/00_GRAFIK_Geheimoperation_Afrika.webm"
   },
   {
     "name": [
-      "MAP Ukraine"
+      "hi"
     ],
-    "file": "C:\\Projects\\bild-hh3studio-ts\\public\\storage-r-two\\1.webm"
+    "ctrl": [
+      ""
+    ],
+    "file": "/Users/agolani/Documents/git/bild-hh3studio-ts/public/storage-r-three/04_Kharkum.webm"
+  },
+  {
+    "name": [
+      "hello"
+    ],
+    "mute": [
+      ""
+    ],
+    "loop": [
+      ""
+    ],
+    "file": "/Users/agolani/Documents/git/bild-hh3studio-ts/public/storage-r-three/02_FPV.webm"
   }
 ]

@@ -167,7 +167,7 @@
                 for (l = 2; l < json.length; l++) {
                     console.log(json[l].mute)
 
-                    layout += `<a class="video pos${l-1}" onclick="playVideo('/assets/storage-r-two/${json[l].file.split(`\\`)[5]}', '${json[l].loop ? 'loop' : 'notloop'}', '${json[l].mute ? 'muted' : 'unmuted'}', '${json[l].ctrl ? 'withPlayButtons' : 'noPlayButtons'}'); highlight();">
+                    layout += `<a style="top: ${42*l+68}px" class="video pos${l-1}" onclick="playVideo('/assets/storage-r-two/${json[l].file.split(`\\`)[5]}', '${json[l].loop ? 'loop' : 'notloop'}', '${json[l].mute ? 'muted' : 'unmuted'}', '${json[l].ctrl ? 'withPlayButtons' : 'noPlayButtons'}'); highlight();">
                     ${json[l].name}
                     </a>
                     `
