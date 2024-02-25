@@ -26,16 +26,16 @@
 
       <h class="title is-2 has-text-white has-text-weight-light">Upload a playlist</h><br><br>
       <div class="buttons">
-        <a href="/create?r=one" class="button is-danger has-background-danger-dark has-text-weight-bold is-small">One</a>
-        <a href="/create?r=two" class="button is-danger has-background-danger-dark has-text-weight-bold is-small">Two</a>
-        <a href="/create?r=three" class="button is-danger has-background-danger-dark has-text-weight-bold is-small">Three</a>
-        <a href="/create?r=four" class="button is-danger has-background-danger-dark has-text-weight-bold is-small">Four</a>
-        <a href="/create?r=five" class="button is-danger has-background-danger-dark has-text-weight-bold is-small">Five</a>
+        <a href="/create?r=one" class="button is-dark">One</a>
+        <a href="/create?r=two" class="button is-dark">Two</a>
+        <a href="/create?r=three" class="button is-dark">Three</a>
+        <a href="/create?r=four" class="button is-dark">Four</a>
+        <a href="/create?r=five" class="button is-dark">Five</a>
       </div><br>
-      <h class="title is-2 has-text-white has-text-weight-light">Preview a playlist</h><br><br>
+      <h class="title is-3 has-text-white has-text-weight-light">Preview a playlist</h><br><br>
 
-      <div class="select is-small">
-        <select id="presents" onchange="">
+      <div class="select">
+        <select id="presents" class="has-text-grey-lighter has-background-dark">
           <option value="/present?r=one">Playlist One</option>
           <option value="/present?r=two">Playlist Two</option>
           <option value="/present?r=three">Playlist Three</option>
@@ -45,7 +45,7 @@
       </div>
       <br><br>
 
-      <div class="block is-fullwidth" style="scale: .5; max-height:405px; transform-origin: top left;">
+      <div class="block is-fullwidth" style="scale: .5; max-height: 405px; transform-origin: top left;">
         <iframe id="preview" class="" src="/present?r=one" width="1439" height="810"></iframe>
       </div>
     </div>
