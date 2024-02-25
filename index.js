@@ -55,6 +55,15 @@ app.get('/create', (req, res) => {
 });
 
 app.get('/present', (req, res) => {
+
+    if (!req.query.r) {
+        return res.render('select-create', {
+            server: localIpAddress().split('.')[3] === '96' ? 'Big Touchscreen' : 'Small Touchscreen',
+            change: localIpAddress().split('.')[3] === '96' ? 'Switch to the small touchscreen' : 'Switch to the big touchscreen',
+            newLink: localIpAddress().split('.')[3] === '96' ? 'http://10.29.134.46:4000/create' : 'http://10.29.134.96:4000/create',
+        })
+    }
+
     res.render('present', {
         region: req.query.r
     })

@@ -21,23 +21,54 @@
 
   <div class="container has-background-black-ter" style="box-shadow: 0px 0px 100px black;">
     <div class="block p-6">
-      <h class="title is-4 has-text-weight-bold has-text-info"><%-server%></h><br>
-      <h class="title is-2 has-text-white has-text-weight-light">Select Playlist</h><br><br>
+      <h class="title is-4 has-text-weight-bold has-text-danger-dark"><%-server%></h><br>
+      <a class="is-dark has-text-danger-dark" href="<%-newLink%>"><%-change %></a><br><br>
+
+      <h class="title is-2 has-text-white has-text-weight-light">Upload a playlist</h><br><br>
       <div class="buttons">
-        <a href="/create?r=one" class="button is-info has-background-info-dark is-rounded has-text-weight-bold">One</a>
-        <a href="/create?r=two" class="button is-info has-background-info-dark is-rounded has-text-weight-bold">Two</a>
-        <a href="/create?r=three" class="button is-info has-background-info-dark is-rounded has-text-weight-bold">Three</a>
-        <a href="/create?r=four" class="button is-info has-background-info-dark is-rounded has-text-weight-bold">Four</a>
-        <a href="/create?r=five" class="button is-info has-background-info-dark is-rounded has-text-weight-bold">Five</a>
+        <a href="/create?r=one" class="button is-danger has-background-danger-dark has-text-weight-bold is-small">One</a>
+        <a href="/create?r=two" class="button is-danger has-background-danger-dark has-text-weight-bold is-small">Two</a>
+        <a href="/create?r=three" class="button is-danger has-background-danger-dark has-text-weight-bold is-small">Three</a>
+        <a href="/create?r=four" class="button is-danger has-background-danger-dark has-text-weight-bold is-small">Four</a>
+        <a href="/create?r=five" class="button is-danger has-background-danger-dark has-text-weight-bold is-small">Five</a>
+      </div><br>
+      <h class="title is-2 has-text-white has-text-weight-light">Preview a playlist</h><br><br>
+
+      <div class="select is-small">
+        <select id="presents" onchange="">
+          <option value="/present?r=one">Playlist One</option>
+          <option value="/present?r=two">Playlist Two</option>
+          <option value="/present?r=three">Playlist Three</option>
+          <option value="/present?r=four">Playlist Four</option>
+          <option value="/present?r=five">Playlist Five</option>
+        </select>
       </div>
-      <a class="is-dark has-text-info" href="<%-newLink%>"><%-change %></a>
+      <br><br>
+
+      <div class="block is-fullwidth" style="scale: .5; max-height:405px; transform-origin: top left;">
+        <iframe id="preview" class="" src="/present?r=one" width="1439" height="810"></iframe>
+      </div>
     </div>
-        <p class="has-text-centered has-text-white">
-          Fragen, Probleme oder Verbesserungvorschläge? Schreib uns gerne an <strong class="has-text-white">epi@bild.de</strong><br><br><br>
-        </p>
-      
+    <p class="has-text-centered has-text-white">
+      Fragen, Probleme oder Verbesserungvorschläge? Schreib uns gerne an <strong class="has-text-white">epi@bild.de</strong><br><br><br>
+    </p>
+
   </div>
-  
+
+  <script>
+    // Function to be triggered on change
+    function handleSelectChange() {
+      // Get the selected value
+      var selectedValue = document.getElementById("presents").value;
+      document.getElementById('preview').src = selectedValue
+
+      // Do something with the selected value (e.g., navigate to the selected URL)
+      console.log("Selected Value:", selectedValue);
+    }
+
+    // Add event listener to the select element
+    document.getElementById("presents").addEventListener("change", handleSelectChange);
+  </script>
 
 </body>
 

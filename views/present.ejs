@@ -12,7 +12,7 @@
 <body>
 
   <video id="video" playsinline autoplay muted loop>
-    <source src="/assets/gp/BGBILD.mp4" type="video/webm">
+    <source src="" type="video/webm">
   </video>
 
   <div id="layoutBuildUp" name="<%-region%>">
@@ -217,13 +217,16 @@
                     `
         }
         // console.log(layout)
-        document.getElementById('layoutBuildUp').innerHTML = layout
+        document.getElementById('layoutBuildUp').innerHTML = layout;
+
+        playVideo(`/assets/storage-r-${region}/${json[1].file.split(`\\`)[5]}`, 'loop', 'muted', 'noPlayButtons');
+
 
       });
 
     }
 
-    getLayout()
+    getLayout();
   </script>
 
 
