@@ -24,7 +24,8 @@ app.use((req, res, next) => {
     next()
 });
 
-app.get('/create', (req, res) => {
+app.get('/playlists', (req, res) => {
+
 
     if (!req.query.r) {
         return res.render('select', {
