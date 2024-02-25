@@ -20,7 +20,7 @@ app.use('/assets', express.static(path.join(__dirname, 'public')))
 
 app.use((req, res, next) => {
     var d = new Date(Date.now());
-    console.log(chalk.yellowBright(d.toString().split('GMT')[0], req.method, req.path))
+    console.log(chalk.yellowBright(d.toString().split('GMT')[0].split(' ')[4], req.method, req.url))
     next()
 });
 
@@ -169,4 +169,11 @@ app.get('/layout', (req, res) => {
 app.listen(port, () => {
     var d = new Date(Date.now());
     console.log(d.toString().split('GMT')[0].trim(), `Lagezentrum running on ${localIpAddress()}:${port}`);
+    console.log(chalk.redBright(`
+    ██████╗ ██╗██╗     ██████╗     ███████╗██████╗ ██╗
+    ██╔══██╗██║██║     ██╔══██╗    ██╔════╝██╔══██╗██║
+    ██████╔╝██║██║     ██║  ██║    █████╗  ██████╔╝██║
+    ██╔══██╗██║██║     ██║  ██║    ██╔══╝  ██╔═══╝ ██║
+    ██████╔╝██║███████╗██████╔╝    ███████╗██║     ██║
+    ╚═════╝ ╚═╝╚══════╝╚═════╝     ╚══════╝╚═╝     ╚═╝`))
 });
