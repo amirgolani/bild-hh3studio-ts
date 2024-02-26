@@ -16,10 +16,10 @@
   <title>Create</title>
 </head>
 
-<body style="background-color: rgb(18, 18, 18); width: 100vw; height: 100vh; font-family: 'Montserrat'; background-image: url(assets/gp/homebg3.jpg); background-size: cover; background-position: top;">
+<body style="background-color: rgb(18, 18, 18); width: 100vw; min-height: 100vh; font-family: 'Montserrat'; background-image: url(assets/gp/homebg3.jpg); background-size: cover; background-position: top;">
   <%- include('./nav') %>
   <form id="uploadForm" enctype="multipart/form-data" name="<%-region%>">
-    <div class="container my-4 is-max-widescreen " style="box-shadow: 0px 0px 100px black; border: 1px solid rgba(194, 194, 194, .2); border-radius: 6px; overflow: clip; backdrop-filter: blur(80px); background-color: rgba(10, 10, 10, 0.6); ">
+    <div class="container mt-4 is-max-widescreen " style="box-shadow: 0px 0px 100px black; border: 1px solid rgba(194, 194, 194, .2); border-radius: 6px; overflow: clip; backdrop-filter: blur(80px); background-color: rgba(10, 10, 10, 0.6); ">
       <div class="block p-6">
         <h class="title is-4 has-text-weight-bold has-text-danger-dark"><%-server%> </h><br><br>
         <h class="title is-2 has-text-grey-lighter has-text-weight-light">Playlist <%-region%></h>
@@ -29,10 +29,10 @@
         <a class="title has-text-danger-dark is-5" href="/present?p=<%-region%>">View playlist</a><br><br>
         <div id="boxes-container" class="my-4" name="<%-template%>">
           <!-- Existing box -->
-          <div class="box my-2 has-background-dark" id="box_1">
+          <div class="box my-2 has-background-dark p-1" id="box_1" style="border: 2px solid rgba(255, 255, 255, 0.275);">
             <div class="columns is-vcentered">
               <div class="column is-3">
-                <input class="input has-background-black-ter has-text-white" style="outline-width: 0;" type="text" placeholder="Button Text" name="name_1" value="Loop Video" required>
+                <input class="input has-background-black-ter has-text-white" style="outline: none; border: none;" type="text" placeholder="Button Text" name="name_1" value="Loop Video" required>
               </div>
               <div class="column is-narrow">
                 <label class="checkbox is-dark has-text-white">
@@ -79,7 +79,7 @@
       </div>
     </div>
   </form>
-  </p>
+  <br><br>
 </body>
 <script name="hanldeFilesNames">
   function updateFileName(input) {
@@ -110,7 +110,7 @@
       if (boxCounter < 13) {
         // Add a new box
         var newBox = document.createElement('div');
-        newBox.className = 'box my-2 has-background-dark';
+        newBox.className = 'box my-2 has-background-dark p-1';
         newBox.id = 'box_' + (boxCounter + 1);
         newBox.innerHTML = boxesContainer.firstElementChild.innerHTML; // Clone the first box
         updateBoxAttributes(newBox, boxCounter + 1);
@@ -176,13 +176,13 @@
     var incRegion = document.getElementById('uploadForm')
     var region = incRegion.getAttribute('name');
 
-document.getElementById('spinner').classList.remove('is-hidden')
+    document.getElementById('spinner').classList.remove('is-hidden')
     fetch(`/create?p=${region}`, {
         method: 'POST',
         body: formData
       })
       .then(async response => {
-document.getElementById('spinner').classList.add('is-hidden')
+        document.getElementById('spinner').classList.add('is-hidden')
 
         if (response.ok) {
           // Success: Show an alert or perform any other success action

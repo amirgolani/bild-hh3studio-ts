@@ -43,10 +43,10 @@ app.get('/playlists', (req, res) => {
     console.log(req.query.p)
 
     if (req.query.p === '1') {
-        props.template = ['Background Loop', 'Map Gaza']
+        props.template = ['Background Loop', 'MAP Ukraine', 'MAP Osten', 'MAP Süden', 'MAP Awdijiwka', 'MAP Gegenoff.']
     }
     else if (req.query.p === '2') {
-        props.template = ['Background Loop', 'MAP Ukraine', 'MAP Osten', 'MAP Süden', 'MAP Awdijiwka', 'MAP Gegenoff.']
+        props.template = ['Background Loop', 'Map Gaza']
     }
     else {
         props.template = ['Background Loop']

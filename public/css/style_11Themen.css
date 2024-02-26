@@ -55,6 +55,9 @@ table {
 	color: #FFF;
 	text-align: center;
 	border: 1px solid #fff;
+	white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .align {
