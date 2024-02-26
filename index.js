@@ -30,7 +30,7 @@ app.get('/playlists', (req, res) => {
     if (!req.query.p) {
         return res.render('select', {
             server: localIpAddress().split('.')[3] === '96' ? 'Big Touchscreen' : 'Small Touchscreen',
-            change: localIpAddress().split('.')[3] === '96' ? 'Switch to the small touchscreen' : 'Switch to the big touchscreen',
+            change: localIpAddress().split('.')[3] === '96' ? 'Switch to the Small Touchscreen' : 'Switch to the Big Touchscreen',
             newLink: localIpAddress().split('.')[3] === '96' ? 'http://10.29.134.46:4000/create' : 'http://10.29.134.96:4000/create',
         })
     }
