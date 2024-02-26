@@ -201,7 +201,7 @@
       var region = incRegion.getAttribute('name');
 
 
-      fetch(`/layout?r=${region}`).then((response) => response.json()).then((json) => {
+      fetch(`/layout?p=${region}`).then((response) => response.json()).then((json) => {
 
         console.log(json[1].file)
         var layout = `<a class="video pos0"
@@ -211,7 +211,7 @@
         `;
         for (l = 2; l < json.length; l++) {
 
-          layout += `<a class="video pos${l - 1}" onclick="playVideo('/assets/storage-r-three/${json[l].file.split(`\\`)[5]}', '${json[l].loop ? 'loop' : 'notloop'}', '${json[l].mute ? 'muted' : 'unmuted'}', '${json[l].ctrl ? 'withPlayButtons' : 'noPlayButtons'}'); highlight();">
+          layout += `<a class="video pos${l - 1}" onclick="playVideo('/assets/storage-r-3/${json[l].file.split(`\\`)[5]}', '${json[l].loop ? 'loop' : 'notloop'}', '${json[l].mute ? 'muted' : 'unmuted'}', '${json[l].ctrl ? 'withPlayButtons' : 'noPlayButtons'}'); highlight();">
                     ${json[l].name}
                     </a>
                     `

@@ -16,37 +16,37 @@
   <title>Playlists</title>
 </head>
 
-<body style="background-color: rgb(18, 18, 18); width: 100vw; height: 100vh; font-family: 'Montserrat';">
+<body style="background-color: rgb(18, 18, 18); width: 100vw; height: 100vh; font-family: 'Montserrat'; background-image: url(assets/gp/homebg3.jpg); background-size: cover; background-position: top;">
   <%- include('./nav') %>
 
-  <div class="container has-background-black-ter" style="box-shadow: 0px 0px 100px black;">
+  <div class="container my-4 is-max-widescreen" style="box-shadow: 0px 0px 100px black; border: 1px solid rgba(194, 194, 194, .2); border-radius: 6px; overflow: clip; backdrop-filter: blur(80px); background-color: rgba(10, 10, 10, 0.6); ">
     <div class="block p-6">
       <h class="title is-4 has-text-weight-bold has-text-danger-dark"><%-server%></h><br>
       <a class="is-dark has-text-danger-dark" href="<%-newLink%>"><%-change %></a><br><br>
 
-      <h class="title is-2 has-text-white has-text-weight-light">Upload a playlist</h><br><br>
+      <h class="title is-4 has-text-white has-text-weight-light">Upload</h><br><br>
       <div class="buttons">
-        <a href="/playlists?r=one" class="button is-dark">One</a>
-        <a href="/playlists?r=two" class="button is-dark">Two</a>
-        <a href="/playlists?r=three" class="button is-dark">Three</a>
-        <a href="/playlists?r=four" class="button is-dark">Four</a>
-        <a href="/playlists?r=five" class="button is-dark">Five</a>
+        <a href="/playlists?p=1" class="button is-dark">1</a>
+        <a href="/playlists?p=2" class="button is-dark">2</a>
+        <a href="/playlists?p=3" class="button is-dark">3</a>
+        <a href="/playlists?p=4" class="button is-dark">4</a>
+        <a href="/playlists?p=5" class="button is-dark">5</a>
       </div><br>
-      <h class="title is-3 has-text-white has-text-weight-light">Preview a playlist</h><br><br>
+      <h class="title is-4 has-text-white has-text-weight-light">Preview</h><br><br>
 
       <div class="select">
         <select id="presents" style="border: none; outline: none;" class="has-text-grey-lighter has-background-dark">
-          <option value="/present?r=one">Playlist One</option>
-          <option value="/present?r=two">Playlist Two</option>
-          <option value="/present?r=three">Playlist Three</option>
-          <option value="/present?r=four">Playlist Four</option>
-          <option value="/present?r=five">Playlist Five</option>
+          <option value="/present?p=1">1</option>
+          <option value="/present?p=2">2</option>
+          <option value="/present?p=3">3</option>
+          <option value="/present?p=4">4</option>
+          <option value="/present?p=5">5</option>
         </select>
       </div>
       <br><br>
 
       <div class="block is-fullwidth" style="scale: .5; max-height: 405px; transform-origin: top left;">
-        <iframe id="preview" class="" src="/present?r=one" width="1439" height="810"></iframe>
+        <iframe id="preview" class="" src="/present?p=1" width="1439" height="810" style="border-radius: 6px; overflow: clip; box-shadow: 0px 0px 100px black;"></iframe>
       </div>
     </div>
     <p class="has-text-centered has-text-white">

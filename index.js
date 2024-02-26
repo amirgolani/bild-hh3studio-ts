@@ -27,7 +27,7 @@ app.use((req, res, next) => {
 app.get('/playlists', (req, res) => {
 
 
-    if (!req.query.r) {
+    if (!req.query.p) {
         return res.render('select', {
             server: localIpAddress().split('.')[3] === '96' ? 'Big Touchscreen' : 'Small Touchscreen',
             change: localIpAddress().split('.')[3] === '96' ? 'Switch to the small touchscreen' : 'Switch to the big touchscreen',
@@ -38,15 +38,15 @@ app.get('/playlists', (req, res) => {
     var props = {};
 
     props.server = localIpAddress().split('.')[3] === '96' ? 'Big Touchscreen' : 'Small Touchscreen';
-    props.region = req.query.r
-    if (req.query.r === 'one') {
+    props.region = req.query.p
+
+    console.log(req.query.p)
+
+    if (req.query.p === '1') {
         props.template = ['Background Loop', 'Map Gaza']
     }
-    else if (req.query.r === 'two') {
+    else if (req.query.p === '2') {
         props.template = ['Background Loop', 'MAP Ukraine', 'MAP Osten', 'MAP Süden', 'MAP Awdijiwka', 'MAP Gegenoff.']
-    }
-    else if (req.query.r === 'three') {
-        props.template = ['Background Loop']
     }
     else {
         props.template = ['Background Loop']
@@ -57,8 +57,8 @@ app.get('/playlists', (req, res) => {
 
 app.get('/present', (req, res) => {
 
-    if (!req.query.r) {
-        return res.render('select-create', {
+    if (!req.query.p) {
+        return res.render('select', {
             server: localIpAddress().split('.')[3] === '96' ? 'Big Touchscreen' : 'Small Touchscreen',
             change: localIpAddress().split('.')[3] === '96' ? 'Switch to the small touchscreen' : 'Switch to the big touchscreen',
             newLink: localIpAddress().split('.')[3] === '96' ? 'http://10.29.134.46:4000/create' : 'http://10.29.134.96:4000/create',
@@ -66,7 +66,7 @@ app.get('/present', (req, res) => {
     }
 
     res.render('present', {
-        region: req.query.r
+        region: req.query.p
     })
 });
 
@@ -83,8 +83,8 @@ app.post('/create', async (req, res) => {
         }
 
         try {
-            const storagePath = path.join(__dirname, 'public', `storage-r-${req.query.r}`);
-            const dbPath = path.join(__dirname, `db-r-${req.query.r}`);
+            const storagePath = path.join(__dirname, 'public', `storage-r-${req.query.p}`);
+            const dbPath = path.join(__dirname, `db-r-${req.query.p}`);
             const jsonFilePath = path.join(dbPath, 'layout.json');
 
             // Create directory if it doesn't exist
@@ -133,7 +133,7 @@ app.post('/create', async (req, res) => {
             await writeFileAsync(jsonFilePath, JSON.stringify(jsonData, null, 2));
 
             var d = new Date(Date.now());
-            console.log(chalk.yellowBright(d.toString().split('GMT')[0], `Region ${req.query.r} created`));
+            console.log(chalk.yellowBright(d.toString().split('GMT')[0], `Region ${req.query.p} created`));
             res.json(jsonData);
 
         } catch (error) {
@@ -144,7 +144,7 @@ app.post('/create', async (req, res) => {
 });
 
 app.get('/layout', (req, res) => {
-    const filePath = path.join(__dirname, `db-r-${req.query.r}`, 'layout.json');
+    const filePath = path.join(__dirname, `db-r-${req.query.p}`, 'layout.json');
 
     // Read the file asynchronously
     fs.readFile(filePath, 'utf8', (err, data) => {

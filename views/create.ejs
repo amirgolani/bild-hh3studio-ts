@@ -16,17 +16,17 @@
   <title>Create</title>
 </head>
 
-<body style="background-color: rgb(18, 18, 18); width: 100vw; height: 100vh; font-family: 'Montserrat';">
+<body style="background-color: rgb(18, 18, 18); width: 100vw; height: 100vh; font-family: 'Montserrat'; background-image: url(assets/gp/homebg3.jpg); background-size: cover; background-position: top;">
   <%- include('./nav') %>
   <form id="uploadForm" enctype="multipart/form-data" name="<%-region%>">
-    <div class="container has-background-black-ter" style="box-shadow: 0px 0px 100px black;">
+    <div class="container my-4 is-max-widescreen " style="box-shadow: 0px 0px 100px black; border: 1px solid rgba(194, 194, 194, .2); border-radius: 6px; overflow: clip; backdrop-filter: blur(80px); background-color: rgba(10, 10, 10, 0.6); ">
       <div class="block p-6">
         <h class="title is-4 has-text-weight-bold has-text-danger-dark"><%-server%> </h><br><br>
         <h class="title is-2 has-text-grey-lighter has-text-weight-light">Playlist <%-region%></h>
         <br>
         <i id="spinner" class="is-hidden fa-solid fa-sync fa-spin has-text-white"></i>
         <span id="lastUpdateSpan" class="title is-6 has-text-grey">Date</span><br>
-        <a class="title has-text-danger-dark is-5" href="/present?r=<%-region%>">View playlist <%-region%></a><br><br>
+        <a class="title has-text-danger-dark is-5" href="/present?p=<%-region%>">View playlist <%-region%></a><br><br>
         <div id="boxes-container" class="my-4" name="<%-template%>">
           <!-- Existing box -->
           <div class="box my-2 has-background-dark" id="box_1">
@@ -74,8 +74,8 @@
         </div>
         <button type="submit" class="button is-dark has-background-danger-dark is-vcentered">
           <span class="title is-5 has-text-white">Submit</span></button>
-        <button type="button" class="button is-danger is-vcentered" style="width: 40px;" onclick="handleList(false)"><i class="fa-solid fa-plus"></i></button>
-        <button type="button" class="button is-danger is-vcentered" style="width: 40px;" onclick="handleList(true)"><i class="fa-solid fa-minus"></i></button>
+        <button type="button" class="button is-dark has-text-danger is-vcentered" style="width: 40px;" onclick="handleList(false)"><i class="fa-solid fa-plus"></i></button>
+        <button type="button" class="button is-dark has-text-danger is-vcentered" style="width: 40px;" onclick="handleList(true)"><i class="fa-solid fa-minus"></i></button>
       </div>
     </div>
   </form>
@@ -142,7 +142,7 @@
   var incRegion = document.getElementById('uploadForm')
   var region = incRegion.getAttribute('name');
 
-  fetch(`/layout?r=${region}`, {
+  fetch(`/layout?p=${region}`, {
       method: 'GET',
     })
     .then(async response => {
@@ -177,7 +177,7 @@
     var region = incRegion.getAttribute('name');
 
 document.getElementById('spinner').classList.remove('is-hidden')
-    fetch(`/create?r=${region}`, {
+    fetch(`/create?p=${region}`, {
         method: 'POST',
         body: formData
       })
