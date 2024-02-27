@@ -25,5 +25,5 @@ app.post('/create', createPlaylist);
 app.get('/layout', getLayout);
 
 app.listen(4001, () => {
-    console.log(`Playlists Server Runnin on port ${4001}`);
+    console.log(`Playlists Server Running on port ${4001}`);
 });
