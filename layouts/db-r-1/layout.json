@@ -1,23 +1,25 @@
 [
   {
-    "lastUpdate": 1708085807872
+    "metadata": {
+      "lastUpdate": 1709031271334
+    }
   },
   {
     "name": [
       "Loop Video"
     ],
-    "mute": [
-      "on"
-    ],
-    "loop": [
-      "on"
-    ],
-    "file": "C:\\Projects\\bild-hh3studio-ts\\public\\storage-r-1\\loop-r-1.webm"
+    "file": "loop-ukr.webm"
   },
   {
     "name": [
-      "MAP Gaza"
+      "MAP Ukraine"
     ],
-    "file": "C:\\Projects\\bild-hh3studio-ts\\public\\storage-r-1\\1.webm"
+    "mute": [
+      ""
+    ],
+    "ctrl": [
+      ""
+    ],
+    "file": "02_240221_KARTE_Ukraine_Eroberung.webm"
   }
 ]

@@ -1,23 +1,13 @@
 [
   {
-    "lastUpdate": 1708086164639
+    "metadata": {
+      "lastUpdate": 1709032879166
+    }
   },
   {
     "name": [
       "Loop Video"
     ],
-    "mute": [
-      "on"
-    ],
-    "loop": [
-      "on"
-    ],
-    "file": "C:\\Projects\\bild-hh3studio-ts\\public\\storage-r-2\\loop-r-2.webm"
-  },
-  {
-    "name": [
-      "MAP Ukraine"
-    ],
-    "file": "C:\\Projects\\bild-hh3studio-ts\\public\\storage-r-2\\1.webm"
+    "file": "BGNEUTRAL.webm"
   }
 ]

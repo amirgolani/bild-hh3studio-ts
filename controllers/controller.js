@@ -88,7 +88,7 @@ async function createPlaylist(req, res) {
                         mute,
                         loop,
                         ctrl,
-                        file: newFilePath,
+                        file: file[0].originalFilename,
                     });
                 }
                 // else {

@@ -190,8 +190,6 @@
       }
 
       return min + ':' + sec;
-
-
     }
   </script>
 
@@ -201,18 +199,17 @@
       var incRegion = document.getElementById('layoutBuildUp')
       var region = incRegion.getAttribute('name');
 
-
       fetch(`/layout?p=${region}`).then((response) => response.json()).then((json) => {
 
         var layout = `
             <a class="video pos0"
-            onclick="playVideo('/assets/storage-r-${region}/${json[1].file.split(`\\`)[5]}', 'loop', 'muted', 'noPlayButtons'); unhighlight();">
+            onclick="playVideo('/assets/storage-r-${region}/${json[1].file}', 'loop', 'muted', 'noPlayButtons'); unhighlight();">
               <i class="material-icons">home</i>
             </a>
             `;
         for (l = 2; l < json.length; l++) {
 
-          layout += `<a class="video pos${l - 1}" onclick="playVideo('/assets/storage-r-3/${json[l].file.split(`\\`)[5]}', '${json[l].loop ? 'loop' : 'notloop'}', '${json[l].mute ? 'muted' : 'unmuted'}', '${json[l].ctrl ? 'withPlayButtons' : 'noPlayButtons'}'); highlight();">
+          layout += `<a class="video pos${l - 1}" onclick="playVideo('/assets/storage-r-${region}/${json[l].file}', '${json[l].loop ? 'loop' : 'notloop'}', '${json[l].mute ? 'muted' : 'unmuted'}', '${json[l].ctrl ? 'withPlayButtons' : 'noPlayButtons'}'); highlight();">
                     ${json[l].name}
                     </a>
                     `
@@ -220,7 +217,7 @@
         // console.log(layout)
         document.getElementById('layoutBuildUp').innerHTML = layout;
 
-        playVideo(`/assets/storage-r-${region}/${json[1].file.split(`\\`)[5]}`, 'loop', 'muted', 'noPlayButtons');
+        playVideo(`/assets/storage-r-${region}/${json[1].file}`, 'loop', 'muted', 'noPlayButtons');
 
 
       });
