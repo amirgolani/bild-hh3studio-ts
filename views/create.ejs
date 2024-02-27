@@ -27,15 +27,15 @@
         style="box-shadow: 0px 0px 100px black; border: 1px solid rgba(194, 194, 194, .2); border-radius: 6px; overflow: clip; backdrop-filter: blur(80px); background-color: rgba(10, 10, 10, 0.6); ">
         <div class="block p-6">
           <h class="title is-4 has-text-weight-bold has-text-danger-dark"><%-server%> </h><br><br>
-          <a href="/playlists" class="title is-7 has-text-weight-bold has-text-danger-dark">Back to playlists</a><br>
+          <a href="/playlists" class="title is-7 has-text-weight-bold has-text-grey-lighter">Back to playlists</a><br>
           <h class="title is-2 has-text-grey-lighter has-text-weight-light">Upload Playlist <%-region%></h><br>
           <i id="spinner" class="is-hidden fa-solid fa-sync fa-spin has-text-white"></i>
           <span id="lastUpdateSpan" class="title is-6 has-text-grey">Date</span><br>
-          <a class="title has-text-danger-dark is-5" href="/present?p=<%-region%>" target="_blank">View playlist</a><br><br>
+          <a class="title has-text-danger-dark is-5" href="/present?p=<%-region%>" target="_blank">View playlist in a new tab</a><br><br>
           <div id="boxes-container" class="my-4" name="<%-template%>">
             <!-- Existing box -->
             <div class="box my-2 has-background-dark p-2" id="box_1"
-              style="border: 2px solid rgba(255, 255, 255, 0.275);">
+              style="border: 1px solid rgba(255, 255, 255, 0.575);">
               <div class="columns is-vcentered">
                 <div class="column is-3">
                   <input class="input has-background-black-ter has-text-white" style="outline: none; border: none;"
