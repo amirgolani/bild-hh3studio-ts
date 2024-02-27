@@ -9,77 +9,87 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/gp/favicon-16x16.png">
   <link rel="manifest" href="/assets/gp/site.webmanifest">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-  <title>Create</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <title>Upload Playlist <%- region %></title>
 </head>
 
-<body style="background-color: rgb(18, 18, 18); width: 100vw; min-height: 100vh; font-family: 'Montserrat'; background-image: url(assets/gp/homebg3.jpg); background-size: cover; background-position: top;">
+<body
+  style="background-color: rgb(18, 18, 18); width: 100vw; min-height: 100vh; font-family: 'Montserrat'; background-image: url(assets/gp/homebg3.jpg); background-size: cover; background-position: top;">
   <%- include('./nav') %>
-  <form id="uploadForm" enctype="multipart/form-data" name="<%-region%>">
-    <div class="container mt-4 is-max-widescreen " style="box-shadow: 0px 0px 100px black; border: 1px solid rgba(194, 194, 194, .2); border-radius: 6px; overflow: clip; backdrop-filter: blur(80px); background-color: rgba(10, 10, 10, 0.6); ">
-      <div class="block p-6">
-        <h class="title is-4 has-text-weight-bold has-text-danger-dark"><%-server%> </h><br><br>
-        <h class="title is-2 has-text-grey-lighter has-text-weight-light">Playlist <%-region%></h>
-        <br>
-        <i id="spinner" class="is-hidden fa-solid fa-sync fa-spin has-text-white"></i>
-        <span id="lastUpdateSpan" class="title is-6 has-text-grey">Date</span><br>
-        <a class="title has-text-danger-dark is-5" href="/present?p=<%-region%>">View playlist</a><br><br>
-        <div id="boxes-container" class="my-4" name="<%-template%>">
-          <!-- Existing box -->
-          <div class="box my-2 has-background-dark p-2" id="box_1" style="border: 2px solid rgba(255, 255, 255, 0.275);">
-            <div class="columns is-vcentered">
-              <div class="column is-3">
-                <input class="input has-background-black-ter has-text-white" style="outline: none; border: none;" type="text" placeholder="Button Text" name="name_1" value="Loop Video" required>
-              </div>
-              <div class="column is-narrow">
-                <label class="checkbox is-dark has-text-white">
-                  <input type="checkbox" name="mute_1">
-                  Mute
-                </label>
-              </div>
-              <div class="column is-narrow">
-                <label class="checkbox is-dark has-text-white">
-                  <input type="checkbox" name="loop_1">
-                  Loop
-                </label>
-              </div>
-              <div class="column is-narrow">
-                <label class="checkbox is-dark has-text-white">
-                  <input type="checkbox" name="ctrl_1">
-                  Control
-                </label>
-              </div>
-              <div class="column is-fullwidth">
-                <div class="file has-name is-fullwidth is-dark">
-                  <label class="file-label is-dark">
-                    <input class="file-input is-dark" type="file" accept=".webm" name="file_1" onchange="updateFileName(this)" required>
-                    <span class="file-cta">
-                      <span class="file-icon">
-                        <i class="fas fa-upload has-text-white"></i>
-                      </span>
-                      <span class="file-label has-text-white is-dark" style="border: none; outline: none">
-                        File…
-                      </span>
-                    </span>
-                    <span class="file-name is-dark has-text-white" style="border: none; outline: none">
-                    </span>
+    <form id="uploadForm" enctype="multipart/form-data" name="<%-region%>">
+      <div class="container mt-4 is-max-widescreen "
+        style="box-shadow: 0px 0px 100px black; border: 1px solid rgba(194, 194, 194, .2); border-radius: 6px; overflow: clip; backdrop-filter: blur(80px); background-color: rgba(10, 10, 10, 0.6); ">
+        <div class="block p-6">
+          <h class="title is-4 has-text-weight-bold has-text-danger-dark"><%-server%> </h><br><br>
+          <a href="/playlists" class="title is-7 has-text-weight-bold has-text-danger-dark">Back to playlists</a><br>
+          <h class="title is-2 has-text-grey-lighter has-text-weight-light">Upload Playlist <%-region%></h><br>
+          <i id="spinner" class="is-hidden fa-solid fa-sync fa-spin has-text-white"></i>
+          <span id="lastUpdateSpan" class="title is-6 has-text-grey">Date</span><br>
+          <a class="title has-text-danger-dark is-5" href="/present?p=<%-region%>" target="_blank">View playlist</a><br><br>
+          <div id="boxes-container" class="my-4" name="<%-template%>">
+            <!-- Existing box -->
+            <div class="box my-2 has-background-dark p-2" id="box_1"
+              style="border: 2px solid rgba(255, 255, 255, 0.275);">
+              <div class="columns is-vcentered">
+                <div class="column is-3">
+                  <input class="input has-background-black-ter has-text-white" style="outline: none; border: none;"
+                    type="text" placeholder="Button Text" name="name_1" value="Loop Video" required>
+                </div>
+                <div class="column is-narrow">
+                  <label class="checkbox is-dark has-text-white">
+                    <input type="checkbox" name="mute_1">
+                    Mute
                   </label>
+                </div>
+                <div class="column is-narrow">
+                  <label class="checkbox is-dark has-text-white">
+                    <input type="checkbox" name="loop_1">
+                    Loop
+                  </label>
+                </div>
+                <div class="column is-narrow">
+                  <label class="checkbox is-dark has-text-white">
+                    <input type="checkbox" name="ctrl_1">
+                    Control
+                  </label>
+                </div>
+                <div class="column is-fullwidth">
+                  <div class="file has-name is-fullwidth is-dark">
+                    <label class="file-label is-dark">
+                      <input class="file-input is-dark" type="file" accept=".webm" name="file_1"
+                        onchange="updateFileName(this)" required>
+                      <span class="file-cta">
+                        <span class="file-icon">
+                          <i class="fas fa-upload has-text-white"></i>
+                        </span>
+                        <span class="file-label has-text-white is-dark" style="border: none; outline: none">
+                          File…
+                        </span>
+                      </span>
+                      <span class="file-name is-dark has-text-white" style="border: none; outline: none">
+                      </span>
+                    </label>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+          <button type="submit" class="button is-dark has-background-danger-dark is-vcentered">
+            <span class="title is-5 has-text-white">Submit</span></button>
+          <button type="button" class="button is-dark has-text-danger is-vcentered" style="width: 40px;"
+            onclick="handleList(false)"><i class="fa-solid fa-plus"></i></button>
+          <button type="button" class="button is-dark has-text-danger is-vcentered" style="width: 40px;"
+            onclick="handleList(true)"><i class="fa-solid fa-minus"></i></button>
         </div>
-        <button type="submit" class="button is-dark has-background-danger-dark is-vcentered">
-          <span class="title is-5 has-text-white">Submit</span></button>
-        <button type="button" class="button is-dark has-text-danger is-vcentered" style="width: 40px;" onclick="handleList(false)"><i class="fa-solid fa-plus"></i></button>
-        <button type="button" class="button is-dark has-text-danger is-vcentered" style="width: 40px;" onclick="handleList(true)"><i class="fa-solid fa-minus"></i></button>
       </div>
-    </div>
-  </form>
-  <br><br>
+    </form>
+    <br><br>
 </body>
 <script name="hanldeFilesNames">
   function updateFileName(input) {
@@ -127,7 +137,7 @@
 
   function updateBoxAttributes(box, counter) {
     var inputs = box.querySelectorAll('input, label.checkbox');
-    inputs.forEach(function(input) {
+    inputs.forEach(function (input) {
       if (input.tagName === 'INPUT') {
         var currentName = input.name;
         var newName = currentName.replace(/\d+/, counter);
@@ -143,8 +153,8 @@
   var region = incRegion.getAttribute('name');
 
   fetch(`/layout?p=${region}`, {
-      method: 'GET',
-    })
+    method: 'GET',
+  })
     .then(async response => {
       if (response.ok) {
         // Success: Show an alert or perform any other success action
@@ -168,7 +178,7 @@
 </script>
 
 <script>
-  document.getElementById('uploadForm').addEventListener('submit', function(event) {
+  document.getElementById('uploadForm').addEventListener('submit', function (event) {
     event.preventDefault();
 
     var formData = new FormData(this);
@@ -178,9 +188,9 @@
 
     document.getElementById('spinner').classList.remove('is-hidden')
     fetch(`/create?p=${region}`, {
-        method: 'POST',
-        body: formData
-      })
+      method: 'POST',
+      body: formData
+    })
       .then(async response => {
         document.getElementById('spinner').classList.add('is-hidden')
 
@@ -211,10 +221,10 @@
   async function initForm() {
     for (i = 1; i < template.length; i++) {
       await handleList(false);
-      document.getElementsByName(`name_${i+1}`)[0].value = template[i];
-      document.getElementsByName(`mute_${i+1}`)[0].checked = true
-      document.getElementsByName(`loop_${i+1}`)[0].checked = false
-      document.getElementsByName(`ctrl_${i+1}`)[0].checked = true
+      document.getElementsByName(`name_${i + 1}`)[0].value = template[i];
+      document.getElementsByName(`mute_${i + 1}`)[0].checked = true
+      document.getElementsByName(`loop_${i + 1}`)[0].checked = false
+      document.getElementsByName(`ctrl_${i + 1}`)[0].checked = false
     }
   }
 
