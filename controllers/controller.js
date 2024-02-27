@@ -50,17 +50,11 @@ async function createPlaylist(req, res) {
 
         try {
             const storagePath = `./public/storage-r-${req.query.p}`;
-            const dbPath = `./layouts/db-r-${req.query.p}`;
-            const jsonFilePath = path.join(dbPath, 'layout.json');
+            const jsonFilePath = `./layouts/${req.query.p}.json`;
 
             // Create directory if it doesn't exist
             if (!fs.existsSync(storagePath)) {
                 await mkdirAsync(storagePath);
-            }
-
-            // Create directory for JSON file if it doesn't exist
-            if (!fs.existsSync(dbPath)) {
-                await mkdirAsync(dbPath);
             }
 
             await fse.emptyDir(dbPath);
@@ -127,7 +121,7 @@ async function createPlaylist(req, res) {
 }
 
 async function getLayout(req, res) {
-    const filePath = `./layouts/db-r-${req.query.p}/layout.json`;
+    const filePath = `./layouts/${req.query.p}.json`;
 
     // Read the file asynchronously
     fs.readFile(filePath, 'utf8', (err, data) => {
