@@ -16,7 +16,8 @@
   </video>
 
   <div id="layoutBuildUp" name="<%-region%>">
-    <a class="video pos0" onclick="playVideo('/assets/gp/BGBILD.mp4', 'loop', 'muted', 'noPlayButtons'); unhighlight();">
+    <a class="video pos0"
+      onclick="playVideo('/assets/gp/BGBILD.mp4', 'loop', 'muted', 'noPlayButtons'); unhighlight();">
       <i class="material-icons">home</i>
     </a>
 
@@ -139,7 +140,7 @@
     // Add event listeners
     seekslider.addEventListener("change", vidSeek, false);
     video.addEventListener("timeupdate", seektimeupdate, false);
-    video.ontimeupdate = function() {
+    video.ontimeupdate = function () {
       timecodeUpdate()
     };
 
@@ -203,12 +204,12 @@
 
       fetch(`/layout?p=${region}`).then((response) => response.json()).then((json) => {
 
-        console.log(json[1].file)
-        var layout = `<a class="video pos0"
+        var layout = `
+            <a class="video pos0"
             onclick="playVideo('/assets/storage-r-${region}/${json[1].file.split(`\\`)[5]}', 'loop', 'muted', 'noPlayButtons'); unhighlight();">
-            <i class="material-icons">home</i>
-                </a>
-        `;
+              <i class="material-icons">home</i>
+            </a>
+            `;
         for (l = 2; l < json.length; l++) {
 
           layout += `<a class="video pos${l - 1}" onclick="playVideo('/assets/storage-r-3/${json[l].file.split(`\\`)[5]}', '${json[l].loop ? 'loop' : 'notloop'}', '${json[l].mute ? 'muted' : 'unmuted'}', '${json[l].ctrl ? 'withPlayButtons' : 'noPlayButtons'}'); highlight();">
