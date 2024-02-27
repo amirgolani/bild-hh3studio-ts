@@ -10,85 +10,109 @@
   <link rel="manifest" href="/assets/gp/site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <title>Playlists</title>
 </head>
 
-<body
-  style="background-color: rgb(18, 18, 18); width: 100vw; height: 100vh; font-family: 'Montserrat'; background-image: url(assets/gp/homebg3.jpg); background-size: cover; background-position: top;">
+<body style="background-color: rgb(18, 18, 18); width: 100vw; height: 100vh; font-family: 'Montserrat'; background-image: url(assets/gp/homebg3.jpg); background-size: cover; background-position: top;">
   <%- include('./nav') %>
-    <div class="container my-4 is-max-widescreen"
-      style="box-shadow: 0px 0px 100px black; border: 1px solid rgba(194, 194, 194, .2); border-radius: 6px; overflow: clip; backdrop-filter: blur(80px); background-color: rgba(10, 10, 10, 0.6); ">
-      <div class="block p-6">
-        <h class="title is-4 has-text-weight-bold has-text-danger-dark"><%-server%></h><br>
-        <a class="is-dark has-text-danger-dark" href="<%-newLink%>"><%-change %></a><br><br>
-        <h class="title is-3 has-text-white has-text-weight-light">Upload</h><br><br>
-        <div class="buttons">
-          <a href="/playlists?p=1" class="button is-dark has-background-black-ter"
-            style="border: 1px solid rgba(194, 194, 194, .2)"><span class="has-text-weight-bold">1</span>
-            <span class="has-text-danger-dark has-text-weight-medium p-2">UKRAINE</span>
-          </a>
-          <a href="/playlists?p=2" class="button is-dark has-background-black-ter"
-            style="border: 1px solid rgba(194, 194, 194, .2)"><span class="has-text-weight-bold">2</span>
-            <span class="has-text-danger-dark has-text-weight-medium p-2">NAHOST</span>
-          </a>
-          <a href="/playlists?p=3" class="button is-dark has-background-black-ter"
-            style="border: 1px solid rgba(194, 194, 194, .2)"><span class="has-text-weight-bold">3</span>
-            <span class="has-text-danger-dark has-text-weight-medium p-2">SPEZIAL I</span>
-          </a>
-          <a href="/playlists?p=4" class="button is-dark has-background-black-ter"
-            style="border: 1px solid rgba(194, 194, 194, .2)"><span class="has-text-weight-bold">4</span>
-            <span class="has-text-danger-dark has-text-weight-medium p-2">SPEZIAL II</span>
-          </a>
-          <a href="/playlists?p=5" class="button is-dark has-background-black-ter"
-            style="border: 1px solid rgba(194, 194, 194, .2)"><span class="has-text-weight-bold">5</span>
-            <span class="has-text-danger-dark has-text-weight-medium p-2">SPEZIAL III</span>
-          </a>
-        </div><br>
-        <h class="title is-3 has-text-white has-text-weight-light">Preview</h><br><br>
-        <div class="select is-small">
-          <select id="presents" style="border: 1px solid rgba(194, 194, 194, .2); outline: none;"
-            class="has-text-grey-lighter has-background-dark">
-            <option value="/present?p=1">1 UKRAINE</option>
-            <option value="/present?p=2">2 NAHOST</option>
-            <option value="/present?p=3">3 SPEZIAL I</option>
-            <option value="/present?p=4">4 SPEZIAL II</option>
-            <option value="/present?p=5">5 SPEZIAL III</option>
-          </select>
-        </div>
-        <br><br>
-
-        <div class="block is-fullwidth" style="scale: .5; max-height: 405px; transform-origin: top left;">
-          <iframe id="preview" class="" src="/present?p=1" width="1439" height="810"
-            style="border-radius: 6px; overflow: clip; box-shadow: 0px 0px 100px black; border: 1px solid rgba(194, 194, 194, .2)"></iframe>
-        </div>
+  <div class="container my-4 is-max-widescreen" style="box-shadow: 0px 0px 100px black; border: 1px solid rgba(194, 194, 194, .2); border-radius: 6px; overflow: clip; backdrop-filter: blur(80px); background-color: rgba(10, 10, 10, 0.6); ">
+    <div class="block p-6">
+      <h class="title is-4 has-text-weight-bold has-text-grey-light"><%-server%></h><br>
+      <a class="title is-5 is-dark has-text-danger-dark has-text-weight-medium" href="<%-newLink%>"><%-change %></a><br><br>
+      <h class="title is-3 has-text-white has-text-weight-light">Upload</h><br><br>
+      <div class="buttons">
+        <button onclick="location.href='/playlists?p=1'" class="button is-black is-outlined" style="border: 1px solid rgba(194, 194, 194, .2)">
+          <span class="has-text-weight-bold has-text-white">1</span>
+          <span class="has-text-danger-dark has-text-weight-bold p-2">UKRAINE</span>
+        </button>
+        <button onclick="location.href='/playlists?p=2'" class="button is-black is-outlined" style="border: 1px solid rgba(194, 194, 194, .2)">
+          <span class="has-text-weight-bold has-text-white">2</span>
+          <span class="has-text-danger-dark has-text-weight-bold p-2">NAHOST</span>
+        </button>
+        <button onclick="location.href='/playlists?p=3'" class="button is-black is-outlined" style="border: 1px solid rgba(194, 194, 194, .2)">
+          <span class="has-text-weight-bold has-text-white">3</span>
+          <span class="has-text-danger-dark has-text-weight-bold p-2">SPEZIAL I</span>
+        </button>
+        <button onclick="location.href='/playlists?p=4'" class="button is-black is-outlined" style="border: 1px solid rgba(194, 194, 194, .2)">
+          <span class="has-text-weight-bold has-text-white">4</span>
+          <span class="has-text-danger-dark has-text-weight-bold p-2">SPEZIAL II</span>
+        </button>
+        <button onclick="location.href='/playlists?p=5'" class="button is-black is-outlined" style="border: 1px solid rgba(194, 194, 194, .2)">
+          <span class="has-text-weight-bold has-text-white">5</span>
+          <span class="has-text-danger-dark has-text-weight-bold p-2">SPEZIAL III</span>
+        </button>
+      </div><br>
+      <h class="title is-3 has-text-white has-text-weight-light">Preview</h><br><br>
+      <div class="select is-small">
+        <select id="presents" style="border: 1px solid rgba(194, 194, 194, .2); outline: none;" class="has-text-grey-lighter has-background-dark">
+          <option value="1">1 UKRAINE</option>
+          <option value="2">2 NAHOST</option>
+          <option value="3">3 SPEZIAL I</option>
+          <option value="4">4 SPEZIAL II</option>
+          <option value="5">5 SPEZIAL III</option>
+        </select>
       </div>
-      <p class="has-text-centered has-text-grey">
-        Fragen, Probleme oder Verbesserungvorschläge? Schreib uns gerne an <strong
-          class="has-text-grey">epi@bild.de</strong><br><br><br>
-      </p>
-
+      <br>
+      <br>
+      <p id="lastUpdateSpan" class="subtitle is-5 has-text-grey-light">Date</p>
+      <div class="block is-fullwidth" style="scale: .5; max-height: 405px; transform-origin: top left;">
+        <iframe id="preview" class="" src="/present?p=1" width="1439" height="810" style="border-radius: 6px; overflow: clip; box-shadow: 0px 0px 100px black; border: 1px solid rgba(194, 194, 194, .2)">
+        </iframe>
+      </div>
     </div>
+    <p class="has-text-centered has-text-grey">
+      Fragen, Probleme oder Verbesserungvorschläge? Schreib uns gerne an <strong class="has-text-grey">epi@bild.de</strong><br><br><br>
+    </p>
 
-    <script>
-      // Function to be triggered on change
-      function handleSelectChange() {
-        // Get the selected value
-        var selectedValue = document.getElementById("presents").value;
-        document.getElementById('preview').src = selectedValue
+  </div>
 
-        // Do something with the selected value (e.g., navigate to the selected URL)
-        console.log("Selected Value:", selectedValue);
-      }
+  <script>
+    // Function to be triggered on change
+    function handleSelectChange() {
+      // Get the selected value
+      var selectedValue = document.getElementById("presents").value;
+      document.getElementById('preview').src = `/present?p=${selectedValue}`;
 
-      // Add event listener to the select element
-      document.getElementById("presents").addEventListener("change", handleSelectChange);
-    </script>
+      lastUpdatedOn(selectedValue)
+
+      // Do something with the selected value (e.g., navigate to the selected URL)
+      console.log("Selected Value:", selectedValue);
+    }
+
+    // Add event listener to the select element
+    document.getElementById("presents").addEventListener("change", handleSelectChange);
+
+    lastUpdatedOn('1')
+
+    function lastUpdatedOn(selectedValue) {
+      fetch(`/layout?p=${selectedValue}`, {
+          method: 'GET',
+        })
+        .then(async response => {
+          if (response.ok) {
+            // Success: Show an alert or perform any other success action
+            var lastUpdate = await response.json()
+            var d = new Date(lastUpdate[0].metadata.lastUpdate)
+            // alert(d.toString().split('GMT')[0]);
+            document.getElementById('lastUpdateSpan').textContent = `Playlist ${selectedValue} was last updated on ${d.toString().split('GMT')[0]}`
+          } else {
+            // Error: Log the error to the console
+            console.error('Form submission failed:', response.statusText);
+            document.getElementById('lastUpdateSpan').textContent = `New Playlist`
+          }
+        })
+        .catch(error => {
+          // Error: Log the error to the console
+          console.error('Error during form submission:', error);
+          document.getElementById('lastUpdateSpan').textContent = `New Playlist`
+
+        });
+
+    }
+  </script>
 
 </body>
 
