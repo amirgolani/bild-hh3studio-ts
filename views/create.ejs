@@ -158,7 +158,7 @@
         var lastUpdate = await response.json()
         var d = new Date(lastUpdate[0].metadata.lastUpdate)
         // alert(d.toString().split('GMT')[0]);
-        document.getElementById('lastUpdateSpan').textContent = `Last Update at ${d.toString().split('GMT')[0]}`
+        document.getElementById('lastUpdateSpan').textContent = `Last updated on ${d.toString().split('GMT')[0]}`
       } else {
         // Error: Log the error to the console
         console.error('Form submission failed:', response.statusText);

@@ -46,7 +46,7 @@
         </button>
       </div><br>
       <h class="title is-3 has-text-white has-text-weight-light">Preview</h><br><br>
-      <div class="select is-small">
+      <div class="select">
         <select id="presents" style="border: 1px solid rgba(194, 194, 194, .2); outline: none;" class="has-text-grey-lighter has-background-dark">
           <option value="1">1 UKRAINE</option>
           <option value="2">2 NAHOST</option>
@@ -97,7 +97,7 @@
             var lastUpdate = await response.json()
             var d = new Date(lastUpdate[0].metadata.lastUpdate)
             // alert(d.toString().split('GMT')[0]);
-            document.getElementById('lastUpdateSpan').textContent = `Playlist ${selectedValue} was last updated on ${d.toString().split('GMT')[0]}`
+            document.getElementById('lastUpdateSpan').textContent = `Last updated on ${d.toString().split('GMT')[0]}`
           } else {
             // Error: Log the error to the console
             console.error('Form submission failed:', response.statusText);
