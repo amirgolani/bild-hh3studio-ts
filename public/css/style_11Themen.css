@@ -1,19 +1,88 @@
-*{
+* {
 	user-select: none;
 }
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -21,30 +90,50 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
 	display: block;
 }
+
 body {
 	line-height: 1;
 	background-color: black;
 }
-ol, ul {
+
+ol,
+ul {
 	list-style: none;
 }
-blockquote, q {
+
+blockquote,
+q {
 	quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
 	content: '';
 	content: none;
 }
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
 .floatLeft0 {
 	position: fixed;
 	width: 60px;
@@ -56,8 +145,8 @@ table {
 	text-align: center;
 	border: 1px solid #fff;
 	white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .align {
@@ -76,6 +165,7 @@ table {
 	text-align: center;
 	border: 1px solid #fff;
 }
+
 .floatLeft1 {
 	position: fixed;
 	width: 60px;
@@ -87,6 +177,7 @@ table {
 	text-align: center;
 	border: 1px solid #fff;
 }
+
 .floatLeft2 {
 	position: fixed;
 	width: 60px;
@@ -98,6 +189,7 @@ table {
 	text-align: center;
 	border: 1px solid #fff;
 }
+
 .floatLeft3 {
 	position: fixed;
 	width: 60px;
@@ -120,10 +212,13 @@ table {
 	box-shadow: 0 0 3px 1px #9ecaed;
 	text-align: center;
 	padding: 6px;
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: 'Gotham';
 	font-size: 15px;
 	font-weight: bold;
-	text-transform: uppercase
+	text-transform: uppercase;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 
@@ -137,67 +232,86 @@ table {
 	box-shadow: 0 0 3px 1px #9ecaed;
 	text-align: center;
 	padding: 6px;
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: 'Gotham';
 	font-size: 15px;
 	font-weight: bold;
-	text-transform: uppercase
+	text-transform: uppercase;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 
 :root {
 	--move: 102px;
-   }
-   
-.pos0{
+}
+
+.pos0 {
 	top: calc(180px - var(--move));
 }
-.pos1{
+
+.pos1 {
 	top: calc(240px - var(--move));
 }
-.pos2{
+
+.pos2 {
 	top: calc(280px - var(--move));
 }
-.pos3{
+
+.pos3 {
 	top: calc(320px - var(--move));
 }
-.pos4{
+
+.pos4 {
 	top: calc(360px - var(--move));
 }
-.pos5{
+
+.pos5 {
 	top: calc(400px - var(--move));
 }
-.pos6{
+
+.pos6 {
 	top: calc(440px - var(--move));
 }
-.pos7{
+
+.pos7 {
 	top: calc(480px - var(--move));
 }
-.pos8{
+
+.pos8 {
 	top: calc(520px - var(--move));
 }
-.pos9{
+
+.pos9 {
 	top: calc(560px - var(--move));
 }
-.pos10{
+
+.pos10 {
 	top: calc(600px - var(--move));
 }
-.pos11{
+
+.pos11 {
 	top: calc(640px - var(--move));
 }
-.pos12{
+
+.pos12 {
 	top: calc(680px - var(--move));
 }
-.pos13{
+
+.pos13 {
 	top: calc(720px - var(--move));
 
 }
-.pos14{
+
+.pos14 {
 	top: calc(760px - var(--move));
 }
-.pos15{
+
+.pos15 {
 	top: calc(800px - var(--move));
 }
-.pos16{
+
+.pos16 {
 	top: calc(840px - var(--move));
 }
 
@@ -213,6 +327,7 @@ table {
 	text-align: center;
 	box-shadow: 0px 0px 0px #999;
 }
+
 .floatLeft2 {
 	position: fixed;
 	width: 60px;
@@ -231,41 +346,44 @@ table {
 .my-float {
 	margin-top: 0px;
 }
+
 .material-icons_player {
 	margin-top: 18px;
 }
 
 
 #bg {
-	position: fixed; 
-	top: 0; 
-	left: 0; 
-  
+	position: fixed;
+	top: 0;
+	left: 0;
+
 	/* Preserve aspet ratio */
 	max-width: 100%;
-    height: auto;
-  }
+	height: auto;
+}
 
-  #video {
+#video {
 	position: fixed;
 	right: 0;
 	width: 100%;
 	overflow: hidden;
-  }
-  .number{
+}
+
+.number {
 	font-family: 'Roboto', sans-serif;
 	font-size: 25px;
 	position: fixed;
 	text-decoration: none;
 	margin-top: 17px;
 	margin-left: -8px;
-  }
-  a:link {
-	text-decoration: none;
-  }
+}
 
-  #timecode{
-	position: fixed;  
+a:link {
+	text-decoration: none;
+}
+
+#timecode {
+	position: fixed;
 	font-size: 25px;
 	color: white;
 	font-family: Arial, Helvetica, sans-serif;
@@ -275,31 +393,41 @@ table {
 	background-color: #dd000000;
 	border-radius: 5px;
 	padding: 8px;
-  }
+}
 
-  #seekslider {
+#seekslider {
 	position: fixed;
 	width: 85.6vw;
 	height: 18px;
 	bottom: 65px;
 	left: 150px;
 	border-radius: 5px;
-	-webkit-appearance: none;  /* Override default CSS styles */
+	-webkit-appearance: none;
+	/* Override default CSS styles */
 	appearance: none;
-	background: #d3d3d3; /* Grey background */
-	outline: none; /* Remove outline */
-	opacity: 1; /* Set transparency (for mouse-over effects on hover) */
-	-webkit-transition: .2s; /* 0.2 seconds transition on hover */
+	background: #d3d3d3;
+	/* Grey background */
+	outline: none;
+	/* Remove outline */
+	opacity: 1;
+	/* Set transparency (for mouse-over effects on hover) */
+	-webkit-transition: .2s;
+	/* 0.2 seconds transition on hover */
 	transition: opacity .2s;
-  }
+}
 
 
-  #seekslider::-webkit-slider-thumb {
-	-webkit-appearance: none; /* Override default look */
+#seekslider::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	/* Override default look */
 	appearance: none;
-	width: 25px; /* Set a specific slider handle width */
-	height: 25px; /* Slider handle height */
-	background: #ffffff; /* Green background */
-	cursor: pointer; /* Cursor on hover */
+	width: 25px;
+	/* Set a specific slider handle width */
+	height: 25px;
+	/* Slider handle height */
+	background: #ffffff;
+	/* Green background */
+	cursor: pointer;
+	/* Cursor on hover */
 	border-radius: 50%;
-  }
+}

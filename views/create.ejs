@@ -29,7 +29,7 @@
         <a class="title has-text-danger-dark is-5" href="/present?p=<%-region%>">View playlist</a><br><br>
         <div id="boxes-container" class="my-4" name="<%-template%>">
           <!-- Existing box -->
-          <div class="box my-2 has-background-dark p-1" id="box_1" style="border: 2px solid rgba(255, 255, 255, 0.275);">
+          <div class="box my-2 has-background-dark p-2" id="box_1" style="border: 2px solid rgba(255, 255, 255, 0.275);">
             <div class="columns is-vcentered">
               <div class="column is-3">
                 <input class="input has-background-black-ter has-text-white" style="outline: none; border: none;" type="text" placeholder="Button Text" name="name_1" value="Loop Video" required>
@@ -53,18 +53,18 @@
                 </label>
               </div>
               <div class="column is-fullwidth">
-                <div class="file has-name is-fullwidth is-dark" style="border: 1px solid white; border-radius: 6px;">
+                <div class="file has-name is-fullwidth is-dark">
                   <label class="file-label is-dark">
                     <input class="file-input is-dark" type="file" accept=".webm" name="file_1" onchange="updateFileName(this)" required>
                     <span class="file-cta">
                       <span class="file-icon">
                         <i class="fas fa-upload has-text-white"></i>
                       </span>
-                      <span class="file-label has-text-white is-dark">
+                      <span class="file-label has-text-white is-dark" style="border: none; outline: none">
                         File…
                       </span>
                     </span>
-                    <span class="file-name is-dark has-text-white" style="border: 0px solid white;">
+                    <span class="file-name is-dark has-text-white" style="border: none; outline: none">
                     </span>
                   </label>
                 </div>
