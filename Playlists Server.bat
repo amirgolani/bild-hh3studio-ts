@@ -1,6 +1,6 @@
 
 cd C:\Projects\bild-hh3studio-ts
-pm2 start touch-screen.js
+pm2 start index.js
 
 
 cmd /k

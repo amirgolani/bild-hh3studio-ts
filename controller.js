@@ -14,7 +14,7 @@ async function getPlaylists(req, res) {
         return res.render('select', {
             server: localIpAddress().split('.')[3] === '96' ? 'Big Touchscreen' : 'Small Touchscreen',
             change: localIpAddress().split('.')[3] === '96' ? 'Switch to the Small Touchscreen' : 'Switch to the Big Touchscreen',
-            newLink: localIpAddress().split('.')[3] === '96' ? 'http://10.29.134.46:4000/create' : 'http://10.29.134.96:4000/create',
+            newLink: localIpAddress().split('.')[3] === '96' ? 'http://10.29.134.46:4001/playlists' : 'http://10.29.134.96:4001/playlists',
         })
     }
 
@@ -49,7 +49,7 @@ async function createPlaylist(req, res) {
         }
 
         try {
-            const storagePath = `./public/storage-r-${req.query.p}`;
+            const storagePath = `./public/storage/${req.query.p}`;
             const jsonFilePath = `./layouts/${req.query.p}.json`;
 
             // Create directory if it doesn't exist
@@ -57,7 +57,6 @@ async function createPlaylist(req, res) {
                 await mkdirAsync(storagePath);
             }
 
-            await fse.emptyDir(dbPath);
             await fse.emptyDir(storagePath);
 
             const jsonData = [];
